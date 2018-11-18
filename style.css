@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 @import url(https://fonts.googleapis.com/css?family=Slabo+13px);
-
 body {
     background-color: #4298B5;
     display: flex;
@@ -143,20 +142,21 @@ option {
     margin-top: -40px;
     margin-left: 135px;
 }
-
-.searchFieldX{
+.searchFieldX {
     height: 25px;
     display: inline-block;
     padding-right: 10px;
-        font-family: "Slabo", sans-serif;
-
+    font-family: "Slabo", sans-serif;
 }
-
-.searchFieldCheckBox{
+.searchFieldCheckBox {
     height: 25px;
     display: inline-block;
     padding-right: 10px;
     margin-top: 14px;
-    margin-left:46px;
+    margin-left: 46px;
     position: absolute;
+}
+.error {
+    border: solid red 3px;
+    border-radius: 4px 4px 4px 4px;
 }
