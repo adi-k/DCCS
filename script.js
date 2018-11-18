@@ -1,5 +1,6 @@
 //this whole little web app reminds me of MS ACCESS creating layouts for UI
 
+
 document.getElementById("rightBtn").style.backgroundColor = "#2471A3";
 var _counter = 1; // keeping track of how many elements are added
 var _counterForms = 0; // keeping track of index at which new elements are saved in array
@@ -261,11 +262,12 @@ const loadForm = () => {
   var _drawHelper;
   var _drawHelperRadio;
   var _dropdownSelected = document.getElementById("dropdownForms");
-  var _formToLoad = _dropdownSelected.options[_dropdownSelected.selectedIndex].value;
+  var _formToLoad =
+    _dropdownSelected.options[_dropdownSelected.selectedIndex].value;
   var _insert = "";
   var _loopCounter = 1;
-  var x_mand=[]; //used for validation, required
-  var x_num=[]; //user for validation, numerical
+  var x_mand = []; //used for validation, required
+  var x_num = []; //user for validation, numerical
   var _elem = document.getElementById("newElementsForm");
 
   //_elem.innerHTML=localStorage.getItem(_formToLoad);
@@ -294,10 +296,16 @@ const loadForm = () => {
 
     switch (_drawHelper[i]) {
       case "text":
-        _insert += '<input type="text" id="inputText'+(i+1)+'" class="searchField" value=" "><br>';
+        _insert +=
+          '<input type="text" id="inputText' +
+          (i + 1) +
+          '" class="searchField" value=""><br>';
         break;
       case "checkbox":
-        _insert += '<input type="checkbox" id="checkbox'+(i+1)+'" class="searchFieldCheckBox" value=" "><br>';
+        _insert +=
+          '<input type="checkbox" id="checkbox' +
+          (i + 1) +
+          '" class="searchFieldCheckBox" value=""><br>';
         break;
       case "radio":
         _insert += drawRadio(_loopCounter, _drawHelperRadio);
@@ -307,18 +315,16 @@ const loadForm = () => {
     _loopCounter += 1;
     i += 1;
 
-    console.log("inputText"+_drawHelper[i-1]);
-
-  	switch (_drawHelper[i]) {
+    switch (_drawHelper[i]) {
       case "mandatory":
-      {
-      	x_mand.push("inputText"+i);
-      }
+        {
+          x_mand.push("inputText" + i);
+        }
         break;
-      case "nonmandatory":       
+      case "nonmandatory":
         break;
       case "numeric":
-      	x_num.push("inputText"+i);
+        x_num.push("inputText" + i);
         break;
     }
 
@@ -327,47 +333,46 @@ const loadForm = () => {
 
   _elem.innerHTML = _insert;
 
-  console.log(x_num);
-  console.log(x_mand);
-
- updateValidation(x_num,x_mand);
+  updateValidation(x_num, x_mand);
+  _dropdownSelected =
+    _dropdownSelected.options[_dropdownSelected.selectedIndex].value;
+  updateDataInput(_dropdownSelected);
 };
 
-const updateValidation = (x_num,x_mand) =>{
-
-  if (x_num.length>0) {
-	
-	var _helem;
-  	for (var i = 0 ; i< x_num.length ;i++) {
-  		_helem=document.getElementById(x_num[i]);
-  		if (_helem!=null) {
-			_helem.type = 'number'; // allows only numerical input
-  		}
-  	}
+const updateValidation = (x_num, x_mand) => {
+  if (x_num.length > 0) {
+    var _helem;
+    for (var i = 0; i < x_num.length; i++) {
+      _helem = document.getElementById(x_num[i]);
+      if (_helem != null) {
+        _helem.type = "number"; // allows only numerical input
+      }
+    }
   }
 
-  if (x_mand.length>0) {
-  	var _helem;
-  	for (var i = 0 ; i< x_mand.length ;i++) {
-  		_helem=document.getElementById(x_mand[i]);
-  		if (_helem!=null) {
-  			_helem.setAttribute("required", "");    //turns required on
-			_helem.required = true;
-  		}
-  	}
+  if (x_mand.length > 0) {
+    var _helem;
+    for (var i = 0; i < x_mand.length; i++) {
+      _helem = document.getElementById(x_mand[i]);
+      if (_helem != null) {
+        _helem.setAttribute("required", ""); //turns required on
+        _helem.required = true;
+      }
+    }
   }
-
-}
+};
 
 const drawRadio = (_loopCounter, _drawHelperRadio) => {
-  var _insert = '<br><form id="formRadio'+_loopCounter+'">';
+  var _insert = '<br><form id="formRadio' + _loopCounter + '">';
   var _helper = _drawHelperRadio["row" + _loopCounter];
   _helper = _helper.split(",");
 
   var x = _helper[0];
   if (x != null) {
     _insert +=
-      '<input type="radio" name="radioBtns'+_loopCounter+'" class="searchFieldFormRadio" value="' +
+      '<input type="radio" name="radioBtns' +
+      _loopCounter +
+      '" class="searchFieldFormRadio" value="' +
       _helper[0] +
       '"><p class="parRadio">' +
       _helper[0] +
@@ -377,7 +382,9 @@ const drawRadio = (_loopCounter, _drawHelperRadio) => {
   var x = _helper[1];
   if (x != null) {
     _insert +=
-      '<input type="radio" name="radioBtns'+_loopCounter+'" class="searchFieldFormRadio" value="' +
+      '<input type="radio" name="radioBtns' +
+      _loopCounter +
+      '" class="searchFieldFormRadio" value="' +
       _helper[1] +
       '"><p class="parRadio">' +
       _helper[1] +
@@ -387,7 +394,9 @@ const drawRadio = (_loopCounter, _drawHelperRadio) => {
   var x = _helper[2];
   if (x != null) {
     _insert +=
-      '<input type="radio" name="radioBtns'+_loopCounter+'" class="searchFieldFormRadio" value="' +
+      '<input type="radio" name="radioBtns' +
+      _loopCounter +
+      '" class="searchFieldFormRadio" value="' +
       _helper[2] +
       '"><p class="parRadio">' +
       _helper[2] +
@@ -576,21 +585,40 @@ const updateFormList = () => {
   var _keyForm;
   var _tempBool1 = false;
   var _tempbool2 = false;
+  var _tempbool3 = false;
+  var _tempbool4 = false;
+  var _tempbool5 = false;
+  var _tempBool6 = false;
   var _substring1 = "(_savedData)";
   var _substring2 = "(_savedRadio)";
+  var _substring3 = "(_type)";
+  var _substring4 = "(_values)";
+  var _substring5 = "(_checked)";
+  var _substring6 = "(_version)";
 
   for (var i = 0, len = localStorage.length; i < len; ++i) {
     _keyForm = localStorage.key(i).replace("(example)", "");
 
     _tempBool1 = _keyForm.includes(_substring1);
     _tempBool2 = _keyForm.includes(_substring2);
+    _tempBool3 = _keyForm.includes(_substring3);
+    _tempBool4 = _keyForm.includes(_substring4);
+    _tempBool5 = _keyForm.includes(_substring5);
+    _tempBool6 = _keyForm.includes(_substring6);
 
-    if (!_tempBool1 && !_tempBool2) {
+    if (
+      !_tempBool1 &&
+      !_tempBool2 &&
+      !_tempBool3 &&
+      !_tempBool4 &&
+      !_tempBool5 &&
+      !_tempBool6
+    ) {
       document.getElementById("dropdownForms").innerHTML +=
         '<option value="' + _keyForm + '">' + _keyForm + "</option>";
     }
   }
-  document.getElementById("versionForm").value = "0.1";
+  document.getElementById("versionForm").value = "0";
 };
 
 const revertUpdateFormList = () => {
@@ -599,21 +627,76 @@ const revertUpdateFormList = () => {
 };
 
 const saveFormInput = () => {
-//saves our form inputs
-	
-	//var _dropdownSelected = document.getElementById("dropdownForms");
-  	//var _formToLoad = _dropdownSelected.options[_dropdownSelected.selectedIndex].value;
-	var x=document.getElementById('newElementsForm').getElementsByTagName('input');
-	console.log(x);
+  //saves our form inputs
 
-	var y=[];
-	for (var i=0;i<x.length;i++)
-	{
-		y[i]=x.item(i).value;
-		console.log(y[i]);
-	}
+  var _dropdownSelected = document.getElementById("dropdownForms");
+  var _formToLoad =
+    _dropdownSelected.options[_dropdownSelected.selectedIndex].value;
+  var x = document
+    .getElementById("newElementsForm")
+    .getElementsByTagName("input");
+  var _type = [];
+  var _values = [];
+  var _checked = [];
+  var _version;
+  var _temporaryBool = true;
 
+  for (var i = 0; i < x.length; i++) {
+    _type[i] = x.item(i).type;
+    _values[i] = x.item(i).value;
+    _checked[i] = x.item(i).checked;
+    if (x.item(i).required == true && x.item(i).value == "") {
+      x.item(i).classList.add("error");
+      alert("Element with red border is required!");
+      _temporaryBool = false;
+    } else if (x.item(i).required == true && x.item(i).value != "") {
+      x.item(i).classList.remove("error");
+      _temporaryBool = true;
+    }
+  }
 
+  if (_temporaryBool == true) {
+    _version = document.getElementById("versionForm").value;
+    localStorage.setItem(_formToLoad + "(_type)", JSON.stringify(_type));
+    localStorage.setItem(_formToLoad + "(_values)", JSON.stringify(_values));
+    localStorage.setItem(_formToLoad + "(_checked)", JSON.stringify(_checked));
+    localStorage.setItem(_formToLoad + "(_version)", JSON.stringify(_version));
+
+    alert("Data succesfully saved");
+  }
 };
+
+const updateDataInput = _dropdownSelected => {
+  var x = document
+    .getElementById("newElementsForm")
+    .getElementsByTagName("input");
+
+  var _type = JSON.parse(localStorage.getItem(_dropdownSelected + "(_type)"));
+  var _values = JSON.parse(
+    localStorage.getItem(_dropdownSelected + "(_values)")
+  );
+  var _checked = JSON.parse(
+    localStorage.getItem(_dropdownSelected + "(_checked)")
+  );
+
+  for (var i = 0; i < x.length; i++) {
+    if (_type[i] == x.item(i).type) {
+      if (x.item(i).type == "text") {
+        x.item(i).value = _values[i];
+      }
+      if (x.item(i).type == "radio") {
+        x.item(i).checked = _checked[i];
+      }
+      if (x.item(i).type == "checkbox") {
+        x.item(i).checked = _checked[i];
+      }
+    }
+  }
+
+  document.getElementById("versionForm").value = localStorage.getItem(
+    _dropdownSelected + "(_version)"
+  );
+};
+
 document.getElementById("leftBtn").addEventListener("click", tabClick);
 document.getElementById("rightBtn").addEventListener("click", tabClick);
