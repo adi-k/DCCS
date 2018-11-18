@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+body {
+    background-color: #4298B5;
+    display: flex;
+    justify-content: center;
+}
+#wrapper {
+    padding-top: 30px;
+    width: 1700px;
+    height: 900px;
+}
+#buttonWrapper {
+    left: 150px;
+    position: absolute;
+}
+#leftBtn, #rightBtn {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background-color: #ADC4CC;
+    height: 30px;
+    width: 120px;
+    border-radius: 0px 24px 0px 0px;
+    text-align: center;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+    font-family: "Open Sans", sans-serif;
+}
+.container {
+    background-color: #ADC4CC;
+    padding: 0 0 0 30px;
+    margin-top: 30px;
+    width: 100%;
+    height: 90%;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#tabContentForm {
+    display: none;
+}
+label {
+    font-family: "Roboto", sans-serif;
+    display: block;
+    float: left;
+    width: 150px;
+    font-size: 20px;
+}
+.plusButton {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+    font-weight: bold;
+    color: white;
+    height: 25px;
+    font-size: 20px;
+}
+#saveButton {
+    bottom: 150px;
+    right: 250px;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+}
+#clearButton {
+    bottom: 150px;
+    right: 380px;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+}
+.dissapear {
+    display: none;
+}
+.dropdownForms {
+    height: 31px;
+    display: inline-block;
+}
+#versionForm {
+    width: 50px;
+    height: 25px;
+    margin-right: 120px;
+    text-align: center;
+}
+#searchFieldForm {
+    position: absolute;
+    width: 130px;
+    height: 30px;
+}
+#versionLabel {
+    font-family: "Roboto", sans-serif;
+    padding-right: 20px;
+}
+select {
+    width: 250px;
+}
+option {
+    width: 250px;
+}
+
+.chooseRadio{
+    width: 30px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+.radioLabels{
+    display: block;
+    margin-left:300px;
+    width:240px;
+}
+.searchField {
+    height: 25px;
+    display: inline-block;
+    padding-right: 10px;
+}
+.searchFieldFormRadio {
+    font-family: "Roboto", sans-serif;
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 110px;
+    margin-top: -38px;
+    position: absolute;
+}
+.searchFieldForm {
+    font-family: "Roboto", sans-serif;
+    display: inline-block;
+    font-size: 20px;
+
+}
+.searchFieldException {
+    height: 5px;
+    display: inline-block;
+    padding-right: 10px;
+    margin-bottom: 0;
+}

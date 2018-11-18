@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DCCS</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="wrapper">
+		<div id="buttonWrapper">
+			<input type="button" id="leftBtn" value="Administration" onclick="tabClick(this.id)"></input>
+			<input type="button" id="rightBtn" value="Forms" onclick="tabClick(this.id)"></input>
+		</div>
+		<div class="container">
+
+			<div id="tabContentAdmin">
+				
+			<br><br><br><br>
+			<label for="searchField">Formular name:  </label>
+		 	<input type="text" name="searchField" id="searchAdmin" class="searchField">
+		 	<input type="button" value="SEARCH" class="searchField" id="searchFieldAdmin" onclick="searchAdmin()">
+		 	<div id="newElementsAdmin"></div>
+
+		 	<div id="saveAndResetButtons"></div>
+			</div>
+
+
+			<div id="tabContentForm">
+
+			<br><br><br><br>
+			<label for="searchField">Formular name:  </label>
+
+    		<select class="dropdownForms" id="dropdownForms" name="formList"></select>
+			<span id="versionLabel">Version:</span><input type="text" name="versionForm" id="versionForm" value="" readonly>
+		 	<input type="button" value="LOAD" class="searchField" id="searchFieldForm" onclick="loadForm()">
+		 	<input type="button" value="SAVE" id="saveButton" onclick="saveFormInput()"><br><br><br><br>
+		 	<div id="newElementsForm"></div>
+
+
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
