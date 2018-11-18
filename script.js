@@ -1,4 +1,4 @@
-//this whole little web app reminds me of MS ACCESS creating UI layouts
+//this whole little web app reminds me of creating UI layouts in  MS ACCESS 
 
 
 document.getElementById("rightBtn").style.backgroundColor = "#2471A3";
