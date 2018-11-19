@@ -121,7 +121,7 @@ option {
     font-family: "Roboto", sans-serif;
     display: inline-block;
     font-size: 20px;
-    margin-left: 110px;
+    margin-left: 160px;
     margin-top: -38px;
     position: absolute;
 }
@@ -140,15 +140,15 @@ option {
     float: left;
     display: inline;
     margin-top: -40px;
-    margin-left: 135px;
+    margin-left: 180px;
 }
 .searchFieldX {
     height: 25px;
     display: inline-block;
     padding-right: 10px;
     font-family: "Slabo", sans-serif;
-    min-width: 100px;
-    max-width: 100px;
+    min-width: 150px;
+    max-width: 150px;
 }
 .searchFieldCheckBox {
     height: 25px;
