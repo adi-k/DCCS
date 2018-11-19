@@ -6,8 +6,7 @@ var _counterForms = 0; // keeping track of index at which new elements are saved
 var _counterFormsBool = false;
 var _temp = true; //used for checking if form(template) has been found in database
 var _newForm = []; //temp array for saving the latest form template
-var _formTracker = [];
-var _counterFormTracker = 0;
+
 
 const tabClick = _clickedID => {
   // toggling between the two tabs in our application
@@ -714,6 +713,10 @@ const updateDataInput = _dropdownSelected => {
       if (x.item(i).type == "checkbox") {
         x.item(i).checked = _checked[i];
       }
+     if (x.item(i).type == "number") {
+        x.item(i).value = _values[i];
+      }
+
     }
 
     }catch(e){
