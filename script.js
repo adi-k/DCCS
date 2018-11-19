@@ -682,7 +682,7 @@ const saveFormInput = () => {
     localStorage.setItem(_formToLoad + "(_type)", JSON.stringify(_type));
     localStorage.setItem(_formToLoad + "(_values)", JSON.stringify(_values));
     localStorage.setItem(_formToLoad + "(_checked)", JSON.stringify(_checked));
-    localStorage.setItem(_formToLoad + "(_version)", JSON.stringify(_version));
+    localStorage.setItem(_formToLoad + "(_version)",_version);
 
     alert("Data succesfully saved");
   }
