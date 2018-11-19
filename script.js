@@ -1,5 +1,4 @@
-//this whole little web app reminds me of creating UI layouts in  MS ACCESS 
-
+//this whole little web app reminds me of creating UI layouts in  MS ACCESS
 
 document.getElementById("rightBtn").style.backgroundColor = "#2471A3";
 var _counter = 1; // keeping track of how many elements are added
@@ -270,24 +269,11 @@ const loadForm = () => {
   var x_num = []; //user for validation, numerical
   var _elem = document.getElementById("newElementsForm");
 
-  //_elem.innerHTML=localStorage.getItem(_formToLoad);
-
   _drawHelperRadio = _formToLoad + "(_savedRadio)";
   _formToLoad += "(_savedData)";
   _drawHelper = localStorage.getItem(_formToLoad);
   _drawHelper = _drawHelper.split(","); //_savedData array
   _drawHelperRadio = JSON.parse(localStorage.getItem(_drawHelperRadio));
-  //_drawHelperRadio=_drawHelperRadio.split(",");
-  /*
-		var ancestor = document.getElementById('newElementsForm');
-    	var descendents = ancestor.getElementsByTagName('*');
-    	descendents = Array.prototype.slice.call(descendents);
-
-			    var i, e, d;
-				for (i = 0; i < descendents.length; ++i) {
-			   		e=descendents[i];
-			    }
-*/
 
   var i = 0;
   do {
@@ -576,6 +562,42 @@ if one exists then loads it up or if not adds one single element on the page (to
     var _saveResetInsert =
       '<input type="button" value="SAVE" id="saveButton" onclick="saveNewForm()"><input type="button" value="CLEAR" id="clearButton" onclick="clearForm()">';
     document.getElementById("saveAndResetButtons").innerHTML = _saveResetInsert;
+    selectedIndexStay(); //when loading the current form/template makes sure the radio option is selected consistently
+    selectedCheckBoxStay(_searchTerm); //when loading the current form/template makes sure checkboxes are selected consistently
+  }
+};
+
+const selectedCheckBoxStay = _searchTerm => {
+  var _toLoad = _searchTerm + "(_savedData)";
+  var _drawHelper = localStorage.getItem(_toLoad);
+  _drawHelper = _drawHelper.split(","); //_savedData array
+  var x;
+  var y = [];
+  var _counterHelper = 1;
+
+  for (var i = 0; i < _drawHelper.length; i++) {
+    if (_counterHelper > _drawHelper.length) {
+      break;
+    }
+    if (i != 0) {
+      _counterHelper += 3;
+    }
+    if (typeof _drawHelper[_counterHelper] != "undefined") {
+      y.push(_drawHelper[_counterHelper]);
+    }
+  }
+
+  console.log(y);
+
+  _counterHelper = 1;
+
+  for (var i = 0; i < y.length; i++) {
+    x = document.getElementById("selectFirst" + (i + 1));
+    if (x != null) {
+      if (y[i] == "checkbox") {
+        x.selectedIndex = "1";
+      }
+    }
   }
 };
 
@@ -680,6 +702,8 @@ const updateDataInput = _dropdownSelected => {
   );
 
   for (var i = 0; i < x.length; i++) {
+
+    try{
     if (_type[i] == x.item(i).type) {
       if (x.item(i).type == "text") {
         x.item(i).value = _values[i];
@@ -691,6 +715,11 @@ const updateDataInput = _dropdownSelected => {
         x.item(i).checked = _checked[i];
       }
     }
+
+    }catch(e){
+      console.log(":)");
+    }
+  
   }
 
   document.getElementById("versionForm").value = localStorage.getItem(
